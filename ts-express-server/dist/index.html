@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        label {
+            display: inline-block;
+            width: 280px;
+        }
+
+        label.short {
+            display: inline-block;
+            width: 90px;
+        }
+
+        label.medium {
+            display: inline-block;
+            width: 190px;
+        }
+
+        label.mediumLarge {
+            display: inline-block;
+            width: 215px;
+        }
+
+        .leftSpace {
+            padding-left: 30px;
+        }
+
+        .leftSpaceCheckbox {
+            margin-left: 30px;
+        }
+
+        input.long {
+            width: 250px;
+        }
+
+        pre {
+            border: 2px solid;
+            border-radius: 5px;
+        }
+
+        body {
+            font-family: Tahoma, sans-serif;
+            background-color: #f2f0e9;
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+        input[type="datetime-local"] {
+            width: 230px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>o-pop</title>
+</head>
+<body>
+<h1>Create your order.</h1>
+<p>Provide organization and order ID:</p>
+<form>
+    <label for="orgName" class="short">Org name:</label>
+    <input type="text" class="long" id="orgName" name="fname" value="Widge Co">
+    <input type="checkbox" class="leftSpaceCheckbox" id="customOrderNumber" name="customOrderNumber" value="customOrderNumber">
+    <label for="customOrderNumber">Custom Order ID</label><br>
+    <label for="orgId" class="short">Org ID:</label>
+    <input type="text" class="long" id="orgId" name="lname" value="1723012143637088">
+    <label for="orderNumber" class="short leftSpace">Order ID:</label>
+    <input type="text" class="long" id="orderNumber" name="orderNumber" value="Order-0001" disabled>
+</form>
+
+<p>Provide buyer's data and dates:</p>
+<form>
+    <label for="fname" class="short">First name:</label>
+    <input type="text" class="long" id="fname" name="fname" value="Grzegorz">
+    <label for="order-date-time" class="mediumLarge leftSpace">Choose order send date:</label>
+    <input type="datetime-local" id="order-date-time" name="order-date-time" value="2018-06-12T19:30:00"
+           min="2018-06-07T00:00" max="2018-06-14T00:00"><br>
+    <label for="lname" class="short">Last name:</label>
+    <input type="text" class="long" id="lname" name="lname" value="Cagara">
+    <label for="promise-date-time" class="mediumLarge leftSpace">Choose promise delivery date:</label>
+    <input type="datetime-local" id="promise-date-time" name="promise-date-time" value="2018-06-12T19:30:00"
+           min="2018-06-07T00:00" max="2018-06-14T00:00"><br>
+    <label for="email" class="short">Email:</label>
+    <input type="text" class="long" id="email" name="email" value="grzegorz.cagara@fedex.com">
+    <label for="delivery-date-time" class="mediumLarge leftSpace">Choose order delivery date:</label>
+    <input type="datetime-local" id="delivery-date-time" name="delivery-date-time" value="2018-06-12T19:30:00"
+           min="2018-06-07T00:00" max="2018-06-14T00:00">
+</form>
+<p>Choose your delivery address and items:</p>
+<form>
+    <input type="radio" id="Seattle" name="address" value="Seattle" checked="checked">
+    <label for="Seattle">98104, Seattle, WA</label>
+    <input type="checkbox" id="item1" name="item1" value="Shoes" kind="itemCheckbox" checked>
+    <label for="item1">Shoes - Grand Wingtip Oxford</label>
+    <input type="text" id="item1Quantity" name="item1Quantity" value="1">
+    <label for="item1Quantity" class="short"> - Quantity</label><br>
+    <input type="radio" id="Birmingham" name="address" value="Birmingham">
+    <label for="Birmingham">35204, Birmingham, AL</label>
+    <input type="checkbox" id="item2" name="item2" value="Backpack" kind="itemCheckbox" checked>
+    <label for="item2">Backpack - ZEROGRAND City Backpack</label>
+    <input type="text" id="item2Quantity" name="item1Quantity" value="1">
+    <label for="item2Quantity" class="short"> - Quantity</label><br>
+    <input type="radio" id="Hauppauge" name="address" value="Hauppauge">
+    <label for="Hauppauge">11788, Hauppauge, NY</label>
+    <input type="checkbox" id="item3" name="item3" value="Bag" kind="itemCheckbox">
+    <label for="item3">Bag - Nylon Mini Shoulder Bag</label>
+    <input type="text" id="item3Quantity" name="item1Quantity" value="1">
+    <label for="item1Quantity" class="short"> - Quantity</label>
+</form>
+
+<p>Choose shipment details:</p>
+<form>
+    <input type="radio" id="single" name="shipment" value="single">
+    <label for="single">Single Shipment</label><br>
+    <input type="radio" id="multi" name="shipment" value="multi" checked="checked">
+    <label for="multi">Multi Shipment</label><br><br>
+    <label for="shipment1">First shipment trackingId: (12 digits)</label>
+    <input type="text" class="long" id="shipment1" name="fname" value="17355583011"><br>
+    <label for="shipment2">Second shipment trackingId: (12 digits)</label>
+    <input type="text" class="long" id="shipment2" name="lname" value="17355583012">
+</form>
+
+
+<form id="shipmentSelection">
+    <p>Select items to be sent in second shipment:</p>
+    <input type="checkbox" id="item1shipment" name="item1" value="Shoes" checked>
+    <label for="item1shipment">Shoes - Grand Wingtip Oxford</label><br>
+    <input type="checkbox" id="item2shipment" name="item2" value="Backpack">
+    <label for="item2shipment">Backpack - ZEROGRAND City Backpack</label><br>
+    <input type="checkbox" id="item3shipment" name="item3" value="Bag">
+    <label for="item3shipment">Bag - Nylon Mini Shoulder Bag</label>
+</form>
+<br>
+<button class="btn btn-lg btn-warning" type="button" name="preview">Preview</button>
+<br>
+<pre id="previewContainer">
+    <br> Click 'Preview' button to preview your order.<br>
+</pre>
+
+<br>
+<button class="btn btn-lg btn-submit" type="button" name="submit">SUBMIT</button>
+<br>
+<pre id="previewContainerSubmit">
+    <br> Click 'Submit' button to send your order.<br>
+</pre>
+
+<!-- You can also require other files to run in this process -->
+<script src="./renderer.js"></script>
+</body>
+</html>

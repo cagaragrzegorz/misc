@@ -1,0 +1,17 @@
+meta {
+  name: DELETE todo
+  type: http
+  seq: 1
+}
+
+delete {
+  url: http://localhost:3000/todos/0.15901579752541073
+  body: json
+  auth: none
+}
+
+body:json {
+    {
+      "text": "Grzegorz other"
+    }
+}
