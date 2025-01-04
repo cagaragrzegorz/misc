@@ -1,7 +1,6 @@
 {
-  "name": "fdx-status",
+  "name": "ts-express-server",
   "version": "1.0.0",
-  "description": "Website for presenting FDX ststus",
   "main": "index.js",
   "scripts": {
     "start": "nodemon dist/app.js",
