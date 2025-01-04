@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": false,
+    "types": ["node",]
+  },
+  "include": [
+    "src"
+  ]
+}

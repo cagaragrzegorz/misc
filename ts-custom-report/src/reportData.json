@@ -1,0 +1,70 @@
+{
+    "deletedFiles": [
+        {
+            "id": 12334,
+            "name": "asdf.json"
+        },
+        {
+            "id": 213123,
+            "name": "fdasfs.json"
+        },
+        {
+            "id": 123243,
+            "name": "qwewrq.json"
+        },
+        {
+            "id": 21423,
+            "name": "vxcvx.json"
+        },
+        {
+            "id": 123123,
+            "name": "uyiuiy.json"
+        },
+        {
+            "id": 321312,
+            "name": "bmnbbm.json"
+        }
+    ],
+    "omittedByKeyword": [
+        {
+            "id": 4535,
+            "name": "service_v1.json"
+        },
+        {
+            "id": 2342,
+            "name": "service_v2.json"
+        },
+        {
+            "id": 23434,
+            "name": "service_v3.json"
+        }
+    ],
+    "omittedBySafeList": [
+        {
+            "id": 56464,
+            "name": "server.json"
+        },
+        {
+            "id": 76657,
+            "name": "module.json"
+        }
+    ],
+    "omittedDefault": [
+        {
+            "id": 9897,
+            "name": "important.json"
+        },
+        {
+            "id": 97890,
+            "name": "other.json"
+        },
+        {
+            "id": 91890,
+            "name": "review.json"
+        },
+        {
+            "id": 92840,
+            "name": "publish.json"
+        }
+    ]
+}

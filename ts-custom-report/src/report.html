@@ -1,0 +1,146 @@
+
+    <html>
+      <head>
+        <title>File Cleanup Report - 1/4/2025</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+          }
+          h1, h2, h3 {
+            color: #0056b3;
+          }
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+          }
+          table, th, td {
+            border: 1px solid #ddd;
+          }
+          th, td {
+            padding: 8px;
+            text-align: left;
+          }
+          th {
+            background-color: #f2f2f2;
+          }
+          .summary-table, .chart-container {
+            width: 48%;
+            display: inline-block;
+            vertical-align: top;
+          }
+          .chart-container {
+            height: 300px;
+          }
+          .filter-buttons {
+            margin-bottom: 10px;
+          }
+          .filter-buttons button {
+            margin-right: 5px;
+            padding: 8px 12px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            cursor: pointer;
+          }
+          .filter-buttons button:hover {
+            background-color: #004494;
+          }
+        </style>
+      </head>
+      <body>
+        <h1>File Cleanup Report - 1/4/2025</h1>
+        <div class="summary-table">
+          <h2>Summary</h2>
+          <table>
+            <tr>
+              <th>Total Files</th>
+              <td>15</td>
+            </tr>
+            <tr>
+              <th>Deleted Files</th>
+              <td>6</td>
+            </tr>
+            <tr>
+              <th>Omitted by Keyword</th>
+              <td>3</td>
+            </tr>
+            <tr>
+              <th>Omitted by Safe List</th>
+              <td>2</td>
+            </tr>
+            <tr>
+              <th>Omitted Default</th>
+              <td>4</td>
+            </tr>
+          </table>
+        </div>
+        <div class="chart-container">
+          <canvas id="pieChart"></canvas>
+        </div>
+        
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const ctx = document.getElementById('pieChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'pie',
+          data: {
+            labels: ['Deleted', 'Omitted by Keyword', 'Omitted by Safe List', 'Omitted Default'],
+            datasets: [{
+              data: [6, 3, 2, 4],
+              backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+            }
+          }
+        });
+      });
+    </script>
+  
+        <div class="filter-buttons">
+          <button onclick="filterTable('all')">Show All</button>
+          <button onclick="filterTable('deleted')">Show Deleted</button>
+          <button onclick="filterTable('keyword')">Show Omitted by Keyword</button>
+          <button onclick="filterTable('safelist')">Show Omitted by Safe List</button>
+          <button onclick="filterTable('default')">Show Omitted Default</button>
+        </div>
+        <table id="fileTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-type="deleted"><td>12334</td><td>asdf.json</td></tr><tr data-type="deleted"><td>213123</td><td>fdasfs.json</td></tr><tr data-type="deleted"><td>123243</td><td>qwewrq.json</td></tr><tr data-type="deleted"><td>21423</td><td>vxcvx.json</td></tr><tr data-type="deleted"><td>123123</td><td>uyiuiy.json</td></tr><tr data-type="deleted"><td>321312</td><td>bmnbbm.json</td></tr>
+            <tr data-type="keyword"><td>4535</td><td>service_v1.json</td></tr><tr data-type="keyword"><td>2342</td><td>service_v2.json</td></tr><tr data-type="keyword"><td>23434</td><td>service_v3.json</td></tr>
+            <tr data-type="safelist"><td>56464</td><td>server.json</td></tr><tr data-type="safelist"><td>76657</td><td>module.json</td></tr>
+            <tr data-type="default"><td>9897</td><td>important.json</td></tr><tr data-type="default"><td>97890</td><td>other.json</td></tr><tr data-type="default"><td>91890</td><td>review.json</td></tr><tr data-type="default"><td>92840</td><td>publish.json</td></tr>
+          </tbody>
+        </table>
+        <script>
+          function filterTable(type) {
+            const rows = document.querySelectorAll('#fileTable tbody tr');
+            rows.forEach(row => {
+              if (type === 'all' || row.dataset.type === type) {
+                row.style.display = '';
+              } else {
+                row.style.display = 'none';
+              }
+            });
+          }
+        </script>
+      </body>
+    </html>
+  
